@@ -1,0 +1,53 @@
+$maxWidth: 1280;
+
+@mixin adaptiv-marginBott($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $addMobSize: $addSize + $addSize * 0.7;
+    @media (max-width: 767px) {
+        margin-bottom: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 220px) / #{$maxWidth}));
+    }
+    @media (min-width: 767px) {
+        margin-bottom: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+    }
+}
+@mixin adaptiv-font($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $addMobSize: $addSize + $addSize * 0.7;
+    @media (max-width: 767px) {
+        font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 220px) / #{$maxWidth}));
+    }
+    @media (min-width: 767px) {
+        font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+    }
+}
+
+.item {
+    @include adaptiv-marginBott(20, 10);
+    @include adaptiv-font(20, 12);
+    color: rgb(17, 17, 17);
+}
+// .item::before {
+//     content: '';
+//     display: inline-block;
+//     padding: 5px;
+//     background-color: #fff;
+//     margin-right: 5px;
+//     border-radius: 100%;
+
+// }
+.item a:hover {
+    color: rgb(18, 169, 207);
+}
+.item a {
+    color: aliceblue;
+    font-weight: 200;
+    // color: inherit;
+    text-decoration: none;
+}
+
+@media (max-width:445px) {
+    .item::before {
+        display: none;
+    }
+    
+}

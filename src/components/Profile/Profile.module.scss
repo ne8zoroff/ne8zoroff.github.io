@@ -1,0 +1,135 @@
+$maxWidth: 1280;
+@mixin adaptiv-font($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $addMobSize: $addSize + $addSize * 0.7;
+    @media (max-width: 767px) {
+        font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+    }
+    @media (min-width: 767px) {
+        font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+    }
+}
+@mixin adaptiv-width($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $addMobSize: $addSize + $addSize * 0.7;
+    @media (max-width: 767px) {
+        width: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+    }
+    @media (min-width: 767px) {
+        width: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+    }
+}
+@mixin adaptiv-height($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $addMobSize: $addSize + $addSize * 0.7;
+    @media (max-width: 767px) {
+        height: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+    }
+    @media (min-width: 767px) {
+        height: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+    }
+}
+@mixin adaptiv-mr($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $addMobSize: $addSize + $addSize * 0.7;
+    @media (max-width: 767px) {
+        margin-right: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+    }
+    @media (min-width: 767px) {
+        margin-right: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+    }
+}
+
+.profile {
+    border-image: linear-gradient(20deg, #1bcbd1, #89d313) 1;
+    border-width: 2px;
+    border-style: dotted;
+    // animation: 10s rotate linear infinite;
+    width: 90.2%;
+}
+.profile__container {
+    padding: 8px;
+}
+.profile__page {
+    display: flex;
+    align-items: center;
+}
+
+.profile__page_img {
+    @include adaptiv-width(190, 100);
+    @include adaptiv-height(190, 100);
+    @include adaptiv-mr(50, 20);
+    // border: 1px solid #672db3;
+    border-radius: 100%;
+    border: 2px solid #bcb9bd;
+    overflow: hidden;
+    
+}
+.profile__info h3{
+    font-weight: 800;
+    @include adaptiv-font(22, 12);
+}
+.profile__info:not(:first-child){
+    @include adaptiv-font(15, 8);
+}
+.profile__post_title {
+    text-align: center;
+}
+.profile__post_title span{
+    font-weight: 700;
+    @include adaptiv-font(20, 14)
+}
+.profile__post_add {
+    display: flex;
+    justify-content: space-around;
+    // flex-wrap: wrap;
+    align-items: end;
+}
+.profile__post_add_btn {
+    // margin-left: 7px;
+    padding: 0px 7px 0px 7px;
+    color: #89d313;
+    height: 20%;
+    @include adaptiv-font(20, 12);
+}
+.profile__post_add_btn:hover {
+    color: #9ff80f; 
+    cursor: pointer;
+}
+.profile__post_add textarea{
+    width: 90%;
+    font-size: 1rem;
+    padding-bottom: 7px;
+    color: #ece4ee;
+    @include adaptiv-font(20, 12);
+    background: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+.profile__post_add textarea:focus {
+    border: 1px dotted #ece4ee;
+}
+.profile__messages_block {
+    margin-top: 7px;
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+}
+.profile__messages_icon {
+    background-color: #fff;
+    @include adaptiv-width(30, 15);
+    @include adaptiv-height(30, 15);
+    border-radius: 50%;
+    margin-right: 7px;
+}
+.profile__messages_text {
+    @include adaptiv-font(14, 8)
+}
+
+//animationst-----------
+
+
+
+//_______________________

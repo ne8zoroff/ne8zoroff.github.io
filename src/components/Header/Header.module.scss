@@ -1,0 +1,49 @@
+$maxWidth: 1280;
+@mixin adaptiv-font($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $addMobSize: $addSize + $addSize * 0.7;
+    @media (max-width: 767px) {
+        font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 220px) / #{$maxWidth}));
+    }
+    @media (min-width: 767px) {
+        font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+    }
+}
+@mixin adaptiv-width($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $addMobSize: $addSize + $addSize * 0.7;
+    @media (max-width: 767px) {
+        width: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+    }
+    @media (min-width: 767px) {
+        width: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+    }
+}
+
+.header {
+    min-width: 100%;
+    color: aliceblue;
+}
+.header_container {
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px;
+}
+.header__logo {
+    // margin-left: 15px;
+}
+.header__logo img {
+    @include adaptiv-width(60, 25)
+}
+.header__title {
+    @include adaptiv-font(20, 10)
+}
+.header__time {
+    // margin-right: 15px;
+}
+.header__time img {
+    @include adaptiv-width(60, 25)
+}
