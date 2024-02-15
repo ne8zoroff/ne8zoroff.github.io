@@ -1,30 +1,39 @@
 $maxWidth: 1280;
+
 @mixin adaptiv-font($pcSize, $mobSize) {
     $addSize: $pcSize - $mobSize;
     $addMobSize: $addSize + $addSize * 0.7;
+
     @media (max-width: 767px) {
         font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
     }
+
     @media (min-width: 767px) {
         font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
     }
 }
+
 @mixin adaptiv-width($pcSize, $mobSize) {
     $addSize: $pcSize - $mobSize;
     $addMobSize: $addSize + $addSize * 0.7;
+
     @media (max-width: 767px) {
         width: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
     }
+
     @media (min-width: 767px) {
         width: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
     }
 }
+
 @mixin adaptiv-height($pcSize, $mobSize) {
     $addSize: $pcSize - $mobSize;
     $addMobSize: $addSize + $addSize * 0.7;
+
     @media (max-width: 767px) {
         height: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
     }
+
     @media (min-width: 767px) {
         height: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
     }
@@ -34,9 +43,11 @@ $maxWidth: 1280;
     @include adaptiv-font(20, 12);
     font-weight: 500;
 }
-.messages p:nth-child(even){
+
+.messages p:nth-child(even) {
     text-align: right;
 }
+
 .messages p:nth-child(even)::after {
     display: inline-block;
     text-align: center;
@@ -47,6 +58,7 @@ $maxWidth: 1280;
     border-radius: 40% 20%;
     margin-left: 5px;
 }
+
 .messages p:nth-child(odd)::before {
     display: inline-block;
     text-align: center;
@@ -56,4 +68,50 @@ $maxWidth: 1280;
     @include adaptiv-width(15, 7);
     border-radius: 20% 40%;
     margin-right: 5px;
+}
+
+.messages {
+    &__add {
+        display: flex;
+        align-items: end;
+        justify-content: center;
+    }
+    &__add textarea {
+        width: 90%;
+        font-size: 1rem;
+        padding-bottom: 7px;
+        color: #ece4ee;
+        @include adaptiv-font(17, 12);
+        background: transparent;
+        border: none;
+        outline: none;
+        resize: none;
+        max-height: 70px;
+    }
+
+    &__add textarea:focus {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+
+    &__add span {
+        padding: 0px 7px 0px 7px;
+        color: #89d313;
+        height: 20%;
+        @include adaptiv-font(20, 12);
+    }
+
+    &__add span:hover {
+        color: #9ff80f;
+        cursor: pointer;
+    }
+}
+@media (max-width:719px) {
+    .messages__add textarea {
+        height: 50px;
+    }
+}
+@media (max-width:660px) {
+    .messages__add textarea {
+        height: 40px;
+    }
 }

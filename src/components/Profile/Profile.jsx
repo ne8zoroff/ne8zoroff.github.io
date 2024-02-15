@@ -4,7 +4,6 @@ import s from './Profile.module.scss'
 import MyPosts from "./myPosts/MyPosts";
 
 const Profile = (props) => {
-debugger;
     return (
         <section className={s.profile}>
             <div className={s.profile__container}>

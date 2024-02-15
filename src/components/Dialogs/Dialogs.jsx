@@ -14,7 +14,8 @@ const Dialogs = (props) => {
                 {dialogItemEl}
             </div>
             <div className={s.dialogs__dialog}>
-                <Dialog id='0' />
+                <Dialog dialogData= { props.dialogData } 
+                addMessage = { props.addMessage } id='0' />
             </div>
         </div>
     );
